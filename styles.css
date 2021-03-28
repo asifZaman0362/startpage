@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg: #101010;
+    --fg: #efefef;
+    --accent: #65bb9c;
+
+    --color-1: #ef2e51;
+    --color-2: #2eefc1;
+    --color-3: #efc52e;
+    --color-4: #2e7bef;
+    --color-5: #ef2ee7;
+    --color-6: #49ef2e;
+    --color-7: #ef682e;
+    --color-8: #ffffff;
+
+    --color-card-bg: #050505;
+    --color-stroke: #4f4f4f;
+
+    --button-height: 42pt;
+    --button-width: 42pt;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
+    font-family: Inter, 'sans-serif';
+    font-size: 100%;
+}
+
+#title {
+    font-weight: 900;
+    font-size: 48pt;
+    text-align: center;
+}
+
+.searchbar-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 60%;
+    left: 20%;
+    text-align: center;
+    height: 42pt;
+    border: 2px solid var(--color-stroke);
+    border-radius: 10px;
+    background-color: var(--color-card-bg);
+}
+
+#search_field {
+    flex-grow: 1;
+    align-self: center;
+}
+
+#search_field input {
+    padding: 0 30px;
+    width: 100%;
+    background-color: var(--color-card-bg);
+    font-size: 18pt;
+    font-family: Inter;
+    font-weight: 400;
+    color: var(--fg);
+    border: 0;
+    border-radius: 10px;
+}
+
+#search_field input:focus {
+    outline: none;
+}
+
+.button {
+    background-color: var(--color-card-bg);
+    width: var(--button-width);
+    height: var(--button-height);
+}
+
+.button p {
+    line-height: var(--button-height);
+    font-weight: 900;
+    font-size: 18pt;
+    margin: 0;
+    color: var(--fg);
+    text-decoration: none;
+}
+
+.button#search_button {
+    position: relative;
+    right: 0;
+    clip-path: inset(0 0 0 0 round 0 8px 8px 0);
+    transition: 0.2s;
+}
+
+.searchbar-container a {
+    text-decoration: none;
+}
+
+.searchbar-container a:hover .button {
+    background-color: var(--accent);
+}
+
+.searchbar-container a:hover .button p {
+    color: var(--color-card-bg);
+}
+
+.card {
+    background-color: var(--color-card-bg);
+    position: relative;
+}
+
+.card .bar {
+    height: 20%;
+    position: relative;
+}
+
+.red {
+    background-color: var(--color-1);
+}
+
+.cyan {
+    background-color: var(--color-2);
+}
+
+.yellow {
+    background-color: var(--color-3);
+}
+
+.blue {
+    background-color: var(--color-4);
+}
+
+.pink {
+    background-color: var(--color-5);
+}
+
+.green {
+    background-color: var(--color-6);
+}
+
+.orange {
+    background-color: var(--color-7);
+}
+
+.white {
+    background-color: var(--color-8);
+}
