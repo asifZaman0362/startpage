@@ -6,16 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startpage</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <h1 id="title">Startpage</h1>
     <div class="searchbar-container">
-        <div id="search_field">
-            <input placeholder="Search with DuckDuckGo..." type="search" name="search_input" id="">
+        <div id="search_field_container">
+            <input placeholder="Search with DuckDuckGo..." type="search" name="search_input" id="search_field">
         </div>
-        <a href=#><div class="button" id="search_button">
+        <a href="javascript:void(0);" onclick="process()"><div class="button" id="search_button">
             <p>-></p>
         </div></a>
+    </div>
+    <div class="site-card-master-container">
+        <div class="site-card-grid">
+            <a href="https://reddit.com"><div class="card">
+                <div class="bar reddit"></div>
+                <img src="res/ic_reddit.png" alt="reddit_ic" srcset="">
+                <p class="card-title">Reddit</p>
+            </div></a>
+            <a href="https://github.com/asifZaman0362?tab=repositories"><div class="card">
+                <div class="bar github"></div>
+                <img src="res/ic_github.png" alt="github_ic" srcset="">
+                <p class="card-title">GitHub</p>
+            </div></a>
+            <a href="https://discord.com/app"><div class="card">
+                <div class="bar discord"></div>
+                <img src="res/ic_discord.png" alt="discord_ic" srcset="">
+                <p class="card-title">Discord</p>
+            </div></a>
+            <a href="https://dropbox.com/h"><div class="card">
+                <div class="bar dropbox"></div>
+                <img src="res/ic_dropbox.png" alt="dropbox_ic" srcset="">
+                <p class="card-title">Dropbox</p>
+            </div></a>
+            <a href="https://docs.google.com"><div class="card">
+                <div class="bar docs"></div>
+                <img src="res/ic_gdocs.png" alt="gdocs_ic" srcset="">
+                <p class="card-title">G-Docs</p>
+            </div></a>
+            <a href="https://open.spotify.com"><div class="card">
+                <div class="bar spotify"></div>
+                <img src="res/ic_spotify.png" alt="spot_ic" srcset="">
+                <p class="card-title">Spotify</p>
+            </div></a>
+            <a href="https://gitlab.com"><div class="card">
+                <div class="bar orange"></div>
+                <img src="res/ic_gitlab.png" alt="gitlab_ic" srcset="">
+                <p class="card-title">GitLab</p>
+            </div></a>
+            <a href="https://youtube.com"><div class="card">
+                <div class="bar youtube"></div>
+                <img src="res/ic_youtube.png" alt="yt_ic" srcset="">
+                <p class="card-title">YouTube</p>
+            </div></a>
+        </div>
     </div>
 </body>
 </html>
