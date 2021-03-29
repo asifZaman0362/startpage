@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function process() {
+            var search_query_url = 'https://www.google.com/search?q=' + document.getElementById('search_field').value;
+            window.location.replace(search_query_url);
+        }
+
+        window.onload = function() {
+            console.log('hello!');
+            document.getElementById('search_field').addEventListener('keydown', function(event) {
+                if (event.keyCode === 13) process();
+            });
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startpage</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --bg: #101010;
+            --fg: #efefef;
+            --accent: #65bb9c;
+
+            --color-1: #ef2e51;
+            --color-2: #2eefc1;
+            --color-3: #efc52e;
+            --color-4: #2e7bef;
+            --color-5: #ef2ee7;
+            --color-6: #49ef2e;
+            --color-7: #ef682e;
+            --color-8: #ffffff;
+
+            --color-card-bg: #050505;
+            --color-stroke: #4f4f4f;
+
+            --button-height: 36pt;
+            --button-width: 36pt;
+        }
+
+
+
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            padding: 0;
+            font-family: Inter, 'sans-serif';
+            font-size: 100%;
+        }
+
+
+
+        #title {
+            font-weight: 900;
+            font-size: 42pt;
+            text-align: center;
+            margin-top: 50pt;
+        }
+
+        /**********************/
+        /* Search bar styling */ 
+        /**********************/
+
+
+        .searchbar-container {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            width: 40%;
+            left: 30%;
+            text-align: center;
+            height: 36pt;
+            border: 3px solid var(--color-stroke);
+            border-radius: 10px;
+            clip-path: inset(0 0 0 0 round 10px 10px 10px 10px);
+            background-color: var(--color-card-bg);
+        }
+
+        #search_field_container {
+            flex-grow: 1;
+            align-self: center;
+        }
+
+        #search_field_container input {
+            height: 100%;
+            padding: 0 30px;
+            width: 100%;
+            background-color: var(--color-card-bg);
+            font-size: 15pt;
+            font-family: Inter;
+            font-weight: 400;
+            color: var(--fg);
+            border: 0;
+            border-radius: 10px;
+        }
+
+        #search_field_container input:focus {
+            outline: none;
+        }
+
+        .button {
+            background-color: var(--color-card-bg);
+            width: var(--button-width);
+            height: var(--button-height);
+        }
+
+        .button p {
+            line-height: var(--button-height);
+            font-weight: 900;
+            font-size: 18pt;
+            margin: 0;
+            color: var(--fg);
+            text-decoration: none;
+        }
+
+        .button#search_button {
+            position: relative;
+            right: -4px;
+            /* clip-path: inset(0 0 0 0 round 0 8px 10px 0); */
+            background-color: var(--accent);
+            transition: 0.2s;
+            height: 40pt;
+            width: 40pt;
+            top: -4px;
+        }
+
+        .button#search_button p {
+            line-height: 40pt;
+        }
+
+        .searchbar-container a {
+            text-decoration: none;
+        }
+
+        .searchbar-container a:hover .button {
+            background-color: var(--accent);
+        }
+
+        /* .searchbar-container a:hover .button p {
+            color: var(--color-card-bg);
+        } */
+
+
+        /**********************/
+        /* Site cards styling */ 
+        /**********************/
+
+
+        .site-card-master-container {
+            margin: 80px;
+            text-align: center;
+        }
+
+        .site-card-grid {
+            text-align: center;
+            display: inline-grid;
+            grid-template-columns: 160pt 160pt 160pt 160pt;
+            grid-template-rows: 200pt 200pt;
+            row-gap: 40pt;
+            column-gap: 50pt;
+        }
+
+        .site-card-grid a {
+            display: block;
+        }
+
+        .card {
+            background-color: var(--color-card-bg);
+            position: relative;
+            clip-path: inset(0 0 0 0 round 0 0 20px 20px);
+            width: 100%;
+            height: 100%;
+        }
+
+        .card .bar {
+            height: 8%;
+            position: relative;
+            transition: 1s;
+        }
+
+        .card img {
+            width: 60pt;
+            height: 60pt;
+            position: absolute;
+            top: 65pt;
+            left: 50pt;
+            transition: 1s;
+        }
+
+        .red {
+            background-color: var(--color-1);
+        }
+
+        .cyan {
+            background-color: var(--color-2);
+        }
+
+        .yellow {
+            background-color: var(--color-3);
+        }
+
+        .blue {
+            background-color: var(--color-4);
+        }
+
+        .pink {
+            background-color: var(--color-5);
+        }
+
+        .green {
+            background-color: var(--color-6);
+        }
+
+        .orange {
+            background-color: var(--color-7);
+        }
+
+        .white {
+            background-color: var(--color-8);
+        }
+
+        .youtube {
+            background-color: #ff0000;
+        }
+
+        .reddit {
+            background-color: #ff5700;
+        }
+
+        .github {
+            background-color: #b33ad8;
+        }
+
+        .discord {
+            background-color: #738adb;
+        }
+
+        .dropbox {
+            background-color: #0060ff;
+        }
+
+        .spotify {
+            background-color: #1ed760;
+        }
+
+        .docs {
+            background-color: #4688f4;
+        }
+
+        .card-title {
+            position: absolute;
+            width: 100%;
+            bottom: 5%;
+            font-weight: 800;
+            font-size: 130%;
+            transition: 1s;
+            color: var(--fg);
+        }
+
+        .card:hover .bar {
+            height: 100%;
+        }
+
+        .card:hover .card-title {
+            bottom: 70%;
+            color: var(--color-card-bg);
+        }
+
+        .card:hover img {
+            top: 80pt;
+            filter: brightness(0);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        alert('hello!');
+    </script>
+    <h1 id="title">Startpage</h1>
+    <div class="searchbar-container">
+        <div id="search_field_container">
+            <input placeholder="Search with DuckDuckGo..." type="search" name="search_input" id="search_field">
+        </div>
+        <a href="javascript:void(0);" onclick="process()"><div class="button" id="search_button">
+            <p>-></p>
+        </div></a>
+    </div>
+    <div class="site-card-master-container">
+        <div class="site-card-grid">
+            <a href="https://reddit.com"><div class="card">
+                <div class="bar reddit"></div>
+                <img src="res/ic_reddit.png" alt="reddit_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_reddit.png">
+                <p class="card-title">Reddit</p>
+            </div></a>
+            <a href="https://github.com/asifZaman0362?tab=repositories"><div class="card">
+                <div class="bar github"></div>
+                <img src="res/ic_github.png" alt="github_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_github.png">
+                <p class="card-title">GitHub</p>
+            </div></a>
+            <a href="https://discord.com/app"><div class="card">
+                <div class="bar discord"></div>
+                <img src="res/ic_discord.png" alt="discord_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_discord.png">
+                <p class="card-title">Discord</p>
+            </div></a>
+            <a href="https://dropbox.com/h"><div class="card">
+                <div class="bar dropbox"></div>
+                <img src="res/ic_dropbox.png" alt="dropbox_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_dropbox.png">
+                <p class="card-title">Dropbox</p>
+            </div></a>
+            <a href="https://docs.google.com"><div class="card">
+                <div class="bar docs"></div>
+                <img src="res/ic_gdocs.png" alt="gdocs_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_gdocs.png">
+                <p class="card-title">G-Docs</p>
+            </div></a>
+            <a href="https://open.spotify.com"><div class="card">
+                <div class="bar spotify"></div>
+                <img src="res/ic_spotify.png" alt="spot_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_spotify.png">
+                <p class="card-title">Spotify</p>
+            </div></a>
+            <a href="https://gitlab.com"><div class="card">
+                <div class="bar orange"></div>
+                <img src="res/ic_gitlab.png" alt="gitlab_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_gitlab.png">
+                <p class="card-title">GitLab</p>
+            </div></a>
+            <a href="https://youtube.com"><div class="card">
+                <div class="bar youtube"></div>
+                <img src="res/ic_youtube.png" alt="yt_ic" srcset="https://raw.githubusercontent.com/asifZaman0362/startpage/master/res/ic_youtube.png">
+                <p class="card-title">YouTube</p>
+            </div></a>
+        </div>
+    </div>
+</body>
+</html>
