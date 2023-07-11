@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --col-bg: #282828;
+      --col-bg-sec: #333333;
+      --col-border: #505050;
+      --col-fg: #efefef;
+      --col-placeholder: #858585;
+      --col-ac1: #EFC52E;
+      --col-ac2: #F95A77;
+      --col-ac3: #65BB9C;
+      --col-ac4: #EF682E;
+      --col-ac5: #859EF5;
+    }
+    body, html {
+      display: flex;
+      flex: 1;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: "UbuntuMono Nerd Font";
+      background: var(--col-bg);
+      color: var(--col-fg);
+    }
+    #parent {
+      padding: 20px;
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+    }
+    #left {
+      width: 80%;
+      padding-left: 100px;
+      padding-top: 100px;
+    }
+    #right {
+      background: var(--col-bg-sec);
+      border-radius: 25px;
+      width: 20%;
+      padding: 20px 50px;
+    }
+    input {
+      font-family: "UbuntuMono Nerd Font";
+      border-radius: 5px;
+      font-size: 20px;
+    }
+    #blocks div {
+      height: 10px;
+      margin: 10px;
+    }
+    #block1 {
+      background: var(--col-ac1);
+      width: 300px;
+    }
+    #block2 {
+      background: var(--col-ac2);
+      width: 350px;
+    }
+    #block3 {
+      background: var(--col-ac3);
+      width: 100px;
+    }
+    #title {
+      font-size: 128px;
+      margin: 50px 0 100px;
+    }
+    #searchbar-input {
+      background: var(--col-bg-sec);
+      border: 1px solid var(--col-border);
+      height: 40px;
+      width: 500px;
+      outline: none;
+      color: var(--col-fg);
+      padding: 0 10px;
+    }
+    #searchbar-input::placeholder {
+      color: var(--col-placeholder);
+    }
+    #gobutton {
+      background: var(--col-fg);
+      color: var(--col-bg);
+      outline: none;
+      border: none;
+      height: 40px;
+      width: 70px;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+    #gobutton:hover {
+      background: var(--col-ac2);
+      color: var(--col-fg);
+      cursor: pointer;
+    }
+    #links-title span {
+      text-decoration: underline;
+    }
+    #links-title span:nth-child(1) {
+      color: var(--col-ac2);
+    }
+    #links-title span:nth-child(2) {
+      color: var(--col-ac1);
+    }
+    #links-title span:nth-child(3) {
+      color: var(--col-ac3);
+    }
+    #links-title span:nth-child(4) {
+      color: var(--col-ac4);
+    }
+    #links-title span:nth-child(5) {
+      color: var(--col-ac5);
+    }
+  </style>
+  <script>
+    function goToUrl() {
+      let text = document.querySelector("#searchbar-input").value;
+      console.log(text);
+      if (!text) return;
+      let searchUrlPrefix = "https://duckduckgo.com?q=";
+      let urlRegex = new RegExp("((http(s)?|ftp|ssh)://|www\.)([a-z0-9]+\.)+[a-z0-9]+(:[0-9]*)?$");
+      let matches = text.match(urlRegex);
+      if (matches && matches[0] == text) {
+        window.location.replace(text);
+      }
+      else if (text) {
+        window.location.replace(searchUrlPrefix + text);
+      }
+    }
+    function checkForReturn(event) {
+      if (event.keyCode == 13) {
+        goToUrl();
+      } else {
+        return;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="parent">
+    <div id="left">
+      <div id="blocks">
+        <div id="block1"></div>
+        <div id="block2"></div>
+        <div id="block3"></div>
+      </div>
+      <div id="title">Homepage</div>
+      <div id="searchbar">
+        <input type="text" name="searchbar-input" id="searchbar-input" autoFocus onkeypress="checkForReturn(event)" placeholder="What are we looking for today">
+        <input type="button" id="gobutton" value="Go 󰁔" onclick="goToUrl()">
+      </div>
+    </div>
+    <div id="right">
+      <div id="links">
+        <h1 id="links-title"><span>L</span><span>i</span><span>n</span><span>k</span><span>s</span>
+        </h1>
+      </div>
+      <ul id="links-list">
+        <li>
+          <a href="https://reddit.com">Reddit</a>
+          <ul id="links-list">
+            <li><a href="https://reddit.com/r/nixos">r/NixOS</a></li>
+            <li><a href="https://reddit.com/r/unixporn">r/UnixPorn</a></li>
+            <li><a href="https://reddit.com/r/xkcd">r/XKCD</a></li>
+          </ul>
+        </li>
+        <li><a href="https://cppreference.com">CppReference</a></li>
+        <li><a href="https://wiki.archlinux.com">ArchWiki</a></li>
+        <li><a href="web.whatsapp.com">Whatsapp</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
